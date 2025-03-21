@@ -1,0 +1,29 @@
+[package]
+name = "glowing-waffle"
+version = "0.1.0"
+edition = "2021"
+authors = ["Sebastian"]
+description = "A terminal-based 3D ASCII art visualizer that renders a glowing waffle in semi-3D motion"
+repository = "https://github.com/sebk4c/glowing-waffle"
+license = "MIT"
+keywords = ["ascii-art", "terminal", "visualization", "3d", "animation"]
+categories = ["command-line-utilities", "visualization"]
+
+[dependencies]
+crossterm = "0.27.0"
+rand = "0.8.5"
+clap = { version = "4.4.0", features = ["derive"] }
+anyhow = "1.0.75"
+
+[dev-dependencies]
+criterion = "0.5.1"
+
+[[bench]]
+name = "render_benchmark"
+harness = false
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+opt-level = 3

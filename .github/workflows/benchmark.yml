@@ -1,0 +1,62 @@
+name: Benchmark
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 0'  # Run every Sunday at midnight
+
+jobs:
+  benchmark:
+    name: Performance Benchmarks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+      
+      - name: Run benchmarks
+        run: cargo bench -- --output-format bencher | tee output.txt
+      
+      - name: Store benchmark result
+        uses: benchmark-action/github-action-benchmark@v1
+        with:
+          name: Rust Benchmark
+          tool: 'cargo'
+          output-file-path: output.txt
+          # Use personal access token instead of GITHUB_TOKEN for pushing to gh-pages branch
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          auto-push: true
+          # Show alert with commit comment on detecting possible performance regression
+          alert-threshold: '200%'
+          comment-on-alert: true
+          fail-on-alert: false
+          alert-comment-cc-users: '@sebk4c'
+          benchmark-data-dir-path: 'bench-results'
+
+  # Additional benchmarks for specific features
+  waffle-benchmark:
+    name: Waffle Model Benchmarks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+      
+      - name: Run waffle benchmarks
+        run: cargo bench --bench render_benchmark -- --output-format bencher | tee waffle-output.txt
+      
+      - name: Store waffle benchmark result
+        uses: benchmark-action/github-action-benchmark@v1
+        with:
+          name: Waffle Benchmark
+          tool: 'cargo'
+          output-file-path: waffle-output.txt
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          auto-push: true
+          alert-threshold: '200%'
+          comment-on-alert: true
+          fail-on-alert: false
+          benchmark-data-dir-path: 'waffle-bench-results' 
