@@ -92,6 +92,21 @@ Our project uses GitHub Actions for continuous integration and delivery:
 - Benchmarks track performance changes
 - Documentation is generated automatically
 
+Before submitting your PR, ensure all CI checks will pass by running these locally:
+```bash
+# Format code (required)
+cargo fmt --all
+
+# Run clippy (required)
+cargo clippy --all-features -- -D warnings
+
+# Run tests with output
+cargo test --all-features -- --nocapture
+
+# Run benchmarks (optional)
+cargo bench -- --output-format bencher
+```
+
 ## Releases
 
 Releases are created automatically when version tags are pushed:

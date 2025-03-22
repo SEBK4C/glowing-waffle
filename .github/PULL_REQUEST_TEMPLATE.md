@@ -1,10 +1,14 @@
 ## Description
 
-<!-- Provide a brief description of the changes introduced by this PR -->
+<!-- Provide a brief description of the changes in this pull request -->
 
 ## Related Issues
 
-<!-- Link to any related issues here. Use syntax like "Closes #123" or "Fixes #123" to automatically close issues when this PR is merged -->
+<!-- Link to any related issues (use "Fixes #123" or "Related to #123") -->
+
+## Changes Made
+
+<!-- Describe the changes made in this pull request -->
 
 ## Type of Change
 
@@ -22,20 +26,26 @@
 
 ## Checklist
 
-<!-- Mark relevant options with an 'x' -->
+<!-- Replace [ ] with [x] to check items -->
 
-- [ ] My code follows the code style of this project
-- [ ] I have added/updated appropriate documentation
-- [ ] I have added/updated tests that prove my fix or feature works
-- [ ] New and existing unit tests pass locally with my changes
+- [ ] I have followed the code style of the project
 - [ ] I have run `cargo fmt --all` to format my code
-- [ ] I have run `cargo clippy` and addressed all warnings
-- [ ] I have verified my changes by running the application locally
+- [ ] I have run `cargo clippy --all-features -- -D warnings` and fixed all issues
+- [ ] I have run `cargo test --all-features -- --nocapture` and all tests pass
+- [ ] I have updated documentation if necessary
+- [ ] I have added tests for new functionality (if applicable)
 
-## Screenshots (if applicable)
+## Screenshots/GIFs
 
-<!-- Add screenshots here if your changes involve UI -->
+<!-- If applicable, add screenshots or GIFs to demonstrate the changes -->
 
-## Additional Information
+## Additional Notes
 
-<!-- Add any other information about the PR here --> 
+<!-- Any additional information that might be useful for reviewers -->
+
+## Local Testing
+I have verified these changes locally:
+- [ ] Formatting: `cargo fmt --all`
+- [ ] Linting: `cargo clippy --all-features -- -D warnings`
+- [ ] Tests: `cargo test --all-features -- --nocapture`
+- [ ] (Optional) Benchmarks: `cargo bench -- --output-format bencher` 

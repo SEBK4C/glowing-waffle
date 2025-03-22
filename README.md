@@ -84,6 +84,18 @@ This project uses GitHub Actions for continuous integration and deployment:
 - **Release**: Creates binaries for multiple platforms when a new version is tagged and pushes the package to crates.io.
 - **Benchmark**: Runs performance benchmarks and tracks results over time.
 
+### Required GitHub Secrets
+
+The CI/CD pipeline requires the following secrets to be set in your repository settings:
+
+- **PAT_TOKEN**: A Personal Access Token with `repo` scope for deploying to GitHub Pages (documentation and benchmarks)
+- **CODECOV_TOKEN**: Token from [Codecov](https://codecov.io) for uploading coverage reports
+- **CRATES_IO_TOKEN**: Token from [crates.io](https://crates.io) for publishing releases
+
+To set up these secrets:
+1. Go to your repository Settings → Secrets and variables → Actions
+2. Click "New repository secret" and add each of the above
+
 ### Latest Build Status
 
 The CI/CD pipeline ensures code quality and tracks performance:

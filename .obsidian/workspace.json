@@ -170,6 +170,7 @@
   },
   "active": "09caee03c3683bfe",
   "lastOpenFiles": [
+    "CI_SETUP.md",
     "target/release/glowing-waffle.d",
     "target/release/libglowing_waffle.d",
     "target/release/glowing-waffle",
@@ -180,7 +181,6 @@
     "target/release/deps/clap_builder-dae4dd7faf9532b9.clap_builder.f1220b98273564b-cgu.0.rcgu.o",
     "target/release/libglowing_waffle.rlib",
     "target/release/deps/libglowing_waffle-d09e217154a20796.rlib",
-    "target/release/deps/libglowing_waffle-d09e217154a20796.rmeta",
     "TODO.md",
     "CONTRIBUTING.md",
     "README.md"
